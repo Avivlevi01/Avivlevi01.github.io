@@ -406,14 +406,6 @@
       } catch (_) { say(T[lang].fail, true); }
       return;
     }
-    // Netlify Forms: the message is stored on the site and emailed to the owner. If that fails, fall back to the visitor's mail app.
-    try {
-      const data = new URLSearchParams({ 'form-name': 'contact', name, company, email, message, 'bot-field': val('bot-field') });
-      const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() });
-      if (!res.ok) throw new Error(res.status);
-      form.reset(); say(T[lang].sent);
-      return;
-    } catch (_) { /* fall through to mailto */ }
     const body = message + '\n\n— ' + name + (company ? ' (' + company + ')' : '') + '\n' + email;
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(T[lang].subject(name)) + '&body=' + encodeURIComponent(body);
     say(T[lang].opened);
