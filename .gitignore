@@ -1,0 +1,9 @@
+# Not part of the published site
+CLAUDE.md
+.netlify
+.claude/
+
+# Original source files (the site uses the copies in assets/)
+/Aviv Levi - Resume - Junior Developer.pdf
+/__Switzerland Linkdin.JPG
+/מכתב המלצה*.pdf

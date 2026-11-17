@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אביב לוי | Full-Stack Developer</title>
+<meta name="description" content="אביב לוי – Full-Stack Developer (Junior). תואר במדעי המחשב, רקע תפעולי במערכות קריטיות, פרויקטי Python, FastAPI ו-Playwright. פתוח להצעות באזור תל אביב – רמת גן – גבעתיים.">
+<meta name="theme-color" content="#0A1F5C">
+<meta property="og:title" content="אביב לוי | Full-Stack Developer">
+<meta property="og:description" content="Junior Full-Stack Developer. בונה, בודק ולומד מהר.">
+<meta property="og:image" content="assets/aviv-alps.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231F5BFF'/%3E%3Cpath d='M9 49 26 21l8 14 6-8 15 22z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5m0 2.5a2.5 2.5 0 0 1 5 0V16"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.4-4.3A8 8 0 1 1 8.5 18.7L4 20z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .7a4 4 0 0 1-1.7-1.7l.7-1-1-2L9 9.500z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.600-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.400-7 10-7 10z"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m2.500 19 6.500-11.500 4 7 3-4 5.500 8.500z"/></symbol>
+  <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6 7v10M3 10v4M18 7v10M21 10v4M6 12h12"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+</svg>
+
+<a class="skip" href="#about" data-i18n="skip">דילוג לתוכן</a>
+<!-- ========== NAV ========== -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Aviv Levi">
+    <img src="assets/aviv.jpg" alt="" width="36" height="36">
+    <span data-i18n="brand">אביב לוי</span>
+  </a>
+  <nav class="menu" id="menu" aria-label="Main">
+    <a href="#about" data-i18n="nav.about">אודות</a>
+    <a href="#projects" data-i18n="nav.projects">פרויקטים</a>
+    <a href="#skills" data-i18n="nav.skills">כישורים</a>
+    <a href="#journey" data-i18n="nav.journey">מסלול</a>
+    <a href="#contact" data-i18n="nav.contact">צור קשר</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language / החלפת שפה">EN</button>
+    <a class="btn btn-sm btn-primary hide-sm" href="assets/Aviv-Levi-Resume.pdf" download="Aviv-Levi-Resume.pdf">
+      <svg class="ic"><use href="#i-download"/></svg><span data-i18n="nav.cv">קורות חיים</span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ========== HERO ========== -->
+<section class="hero" aria-label="Intro">
+  <div class="sun" aria-hidden="true"></div>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <svg class="ridges" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path id="r1" class="r1" data-speed="0.10" d="M0 400V250l140-70 120 60 160-110 130 90 150-100 170 110 140-70 150 80 140-60 130 90v200z"/>
+    <path id="r2" class="r2" data-speed="0.06" d="M0 400V290l180-60 140 50 180-90 150 80 170-60 150 70 160-50 150 60v100z"/>
+    <g id="heroHikerWrap" data-speed="0.06"><g id="heroHiker" class="hiker-slot"></g></g>
+    <path id="r3" class="r3" data-speed="0.02" d="M0 400V330l200-30 200 25 220-40 200 30 220-20 200 25 200-20v100z"/>
+  </svg>
+
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="pill reveal"><span class="dot"></span><span data-i18n="hero.status">פתוח להצעות עבודה</span></p>
+      <p class="hello reveal" data-i18n="hero.hello">שלום, אני</p>
+      <h1 class="reveal"><span data-i18n="hero.name">אביב לוי</span></h1>
+      <p class="role reveal"><span class="role-main">Full-Stack Developer</span><span class="badge-jr">Junior</span></p>
+      <p class="lead reveal" data-i18n="hero.sub">מפתח תוכנה, בוגר מדעי המחשב בהצטיינות ויוצא יחידה טכנולוגית. מביא איתי הבנה מערכתית מעולמות ה-<bdi>NOC</bdi> והתקשורת, יכולת למידה מהירה ורעב לעשייה. אני מחפש סביבה מתקדמת שבה אוכל לבנות, לאתגר את עצמי, ולהצליח יחד עם הצוות.</p>
+      <div class="cta-row reveal">
+        <a class="btn btn-white" href="#contact"><svg class="ic"><use href="#i-mail"/></svg><span data-i18n="hero.cta1">בואו נדבר</span></a>
+        <a class="btn btn-glass" href="assets/Aviv-Levi-Resume.pdf" download="Aviv-Levi-Resume.pdf"><svg class="ic"><use href="#i-download"/></svg><span data-i18n="hero.cta2">קורות חיים (PDF)</span></a>
+      </div>
+      <ul class="social reveal">
+        <li><a href="https://www.linkedin.com/in/aviv-levi-6123a9328" target="_blank" rel="noopener"><svg class="ic"><use href="#i-in"/></svg>LinkedIn</a></li>
+        <li><a href="https://github.com/Avivlevi01" target="_blank" rel="noopener"><svg class="ic"><use href="#i-code"/></svg>GitHub</a></li>
+        <li><span class="loc"><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="hero.loc">תל אביב · רמת גן · גבעתיים</span></span></li>
+      </ul>
+    </div>
+
+    <div class="code-card reveal" dir="ltr" aria-hidden="true">
+      <div class="code-top"><i></i><i></i><i></i><span>aviv.ts</span></div>
+<pre><code><span class="k">const</span> <span class="v">aviv</span> = {
+  <span class="p">role</span>: <span class="s">"Full-Stack Developer"</span>,
+  <span class="p">level</span>: <span class="s">"Junior"</span>,
+  <span class="p">degree</span>: <span class="s">"B.Sc. Computer Science"</span>,
+  <span class="p">stack</span>: [<span class="s">"Python"</span>, <span class="s">"FastAPI"</span>,
+          <span class="s">"Playwright"</span>, <span class="s">"Git"</span>],
+  <span class="p">background</span>: <span class="s">"24/7 critical systems"</span>,
+  <span class="p">learning</span>: <span class="n">true</span>,
+  <span class="p">openToWork</span>: <span class="n">true</span>,
+};</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="stats-wrap" aria-label="Highlights">
+  <div class="container">
+    <ul class="stats reveal">
+      <li><b class="count" data-to="86" data-suffix="+">86+</b><span data-i18n="st.gpa">ממוצע בתואר במדעי המחשב (HIT)</span></li>
+      <li><b class="count" data-to="4">4</b><span data-i18n="st.lang">שפות תכנות: <bdi dir="ltr">Python, C++, C, C#</bdi></span></li>
+      <li><b class="count" data-to="3">3</b><span data-i18n="st.proj">פרויקטים מוצגים</span></li>
+      <li><b>24/7</b><span data-i18n="st.ops">ניסיון תפעולי במערכות קריטיות</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-main">
+      <p class="eyebrow reveal">01</p>
+      <h2 class="reveal" data-i18n="about.title">קצת עליי</h2>
+      <div class="who reveal">
+        <img src="assets/aviv.jpg" alt="Aviv Levi" width="88" height="88" loading="lazy">
+        <div><b data-i18n="brand2">אביב לוי</b><span data-i18n="about.who">Junior Full-Stack Developer · בוגר HIT</span></div>
+      </div>
+      <p class="reveal" data-i18n="about.p1">אני אביב, מפתח Junior שאוהב אתגרים, אנשים ופתרון בעיות. סיימתי תואר ראשון במדעי המחשב ב-HIT (ממוצע 86+), כולל סמסטר <bdi>Erasmus+</bdi> באוניברסיטת אינסברוק שבאוסטריה.</p>
+      <p class="reveal" data-i18n="about.p2">לפני שהתחלתי לפתח עבדתי בלב מערכות קריטיות: ניהלתי תקלות ברשת בחיל המודיעין ובמוקד מבצעי במשרד לביטחון לאומי. שם למדתי אחריות, דיוק ועבודה תחת לחץ, וזה מה שאני מביא איתי לעולם הפיתוח.</p>
+      <p class="reveal about-note" data-i18n="about.p3">אין לי עדיין ניסיון תעסוקתי בפיתוח, ואני אומר את זה בגלוי. מה שיש לי: בסיס חזק, תיק עבודות אמיתי בגיטהאב, ורצון עצום ללמוד ולהשפיע.</p>
+    </div>
+
+    <aside class="vision reveal">
+      <svg class="ic ic-xl"><use href="#i-mountain"/></svg>
+      <h3 data-i18n="vision.t">החזון</h3>
+      <blockquote data-i18n="vision.q">העולם מתפתח, ואני רוצה להתפתח איתו. אני רואה בעידן של היום הזדמנות ליצור דברים גדולים יותר, ואני כאן כדי להתקדם עם הקידמה וליצור ערך.</blockquote>
+      <p class="sky" data-i18n="vision.s">זו רק ההתחלה. השמיים הם הגבול.</p>
+      <ul class="places">
+        <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="vision.l1">עדיפות ראשונה: תל אביב · רמת גן · גבעתיים</span></li>
+        <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="vision.l2">עדיפות שנייה: שאר גוש דן</span></li>
+        <li><svg class="ic"><use href="#i-code"/></svg><span data-i18n="vision.l3">פתוח לעבודה היברידית ומרחוק</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section class="section alt" id="projects">
+  <div class="container">
+    <p class="eyebrow reveal">02</p>
+    <h2 class="reveal" data-i18n="proj.title">פרויקטים</h2>
+    <p class="section-sub reveal" data-i18n="proj.sub">פרויקטים אישיים ואקדמיים. אלה לא מערכות חיות עם משתמשים, אלא תיק עבודות שמראה איך אני חושב, בונה ובודק. וזו רק ההתחלה.</p>
+
+    <div class="cards">
+      <!-- P1 -->
+      <article class="card reveal">
+        <div class="card-art a1" aria-hidden="true">
+          <svg viewBox="0 0 220 120"><g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="28" y="22" width="22" height="22" rx="6"/><path d="m33 33 4 4 8-9"/><path d="M64 33h110" opacity=".7"/>
+            <rect x="28" y="52" width="22" height="22" rx="6"/><path d="m33 63 4 4 8-9"/><path d="M64 63h86" opacity=".7"/>
+            <rect x="28" y="82" width="22" height="22" rx="6"/><path d="m33 93 4 4 8-9"/><path d="M64 93h98" opacity=".7"/></g></svg>
+          <span class="badge">QA Automation · CI</span>
+        </div>
+        <div class="card-body">
+          <h3>Todo App: FastAPI + UI &amp; API Test Suite</h3>
+          <p data-i18n="p1.d">אפליקציית Todo מבוססת FastAPI עם חבילת בדיקות אוטומטית מלאה: בדיקות UI (E2E) ובדיקות REST API (CRUD ותרחישים שליליים כמו 404). Page Object עם data-testid, fixtures מבודדים, הרצה ב-3 דפדפנים (Chromium, Firefox, WebKit) ו-CI ב-GitHub Actions על כל push.</p>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>Playwright</li><li>pytest</li><li>GitHub Actions</li><li>REST API</li></ul>
+          <a class="link" href="https://github.com/Avivlevi01/TODO_QA_playwright" target="_blank" rel="noopener"><span data-i18n="p.code">צפייה בקוד ב-GitHub</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+
+      <!-- P2 -->
+      <article class="card reveal">
+        <div class="card-art a2" aria-hidden="true">
+          <svg viewBox="0 0 220 120"><g fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round">
+            <rect x="38" y="30" width="56" height="76" rx="9" transform="rotate(-12 66 68)" opacity=".55"/>
+            <rect x="82" y="22" width="56" height="76" rx="9" opacity=".8"/>
+            <rect x="126" y="30" width="56" height="76" rx="9" transform="rotate(12 154 68)"/>
+            <path d="M154 54v28M140 68h28" stroke-linecap="round"/></g></svg>
+          <span class="badge">OOP · Architecture</span>
+        </div>
+        <div class="card-body">
+          <h3>Dominion <em class="wip" data-i18n="p2.wip">בפיתוח</em></h3>
+          <p data-i18n="p2.d">משחק קלפים אוטומטי בהשראת Dominion, כתוב בפייתון. הדגש על ארכיטקטורה: הפרדה בין לוגיקת המשחק לאסטרטגיית השחקן וניהול state בין כמה מחלקות. ה-README מתעד בגלוי גם את הבעיות הידועות, כי כך עובדים.</p>
+          <ul class="tags"><li>Python</li><li>OOP</li><li>State management</li><li>Game architecture</li></ul>
+          <a class="link" href="https://github.com/Avivlevi01/Dominion" target="_blank" rel="noopener"><span data-i18n="p.code">צפייה בקוד ב-GitHub</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+
+      <!-- P3 -->
+      <article class="card reveal">
+        <div class="card-art a3" aria-hidden="true">
+          <svg viewBox="0 0 220 120"><g stroke="#fff" stroke-width="2" opacity=".6">
+            <path d="M40 30 110 20M40 30 110 60M40 30 110 100M40 60 110 20M40 60 110 60M40 60 110 100M40 90 110 20M40 90 110 60M40 90 110 100M110 20 180 45M110 20 180 75M110 60 180 45M110 60 180 75M110 100 180 45M110 100 180 75"/></g>
+            <g fill="#fff"><circle cx="40" cy="30" r="7"/><circle cx="40" cy="60" r="7"/><circle cx="40" cy="90" r="7"/><circle cx="110" cy="20" r="7"/><circle cx="110" cy="60" r="7"/><circle cx="110" cy="100" r="7"/><circle cx="180" cy="45" r="7"/><circle cx="180" cy="75" r="7"/></g></svg>
+          <span class="badge">Machine Learning</span>
+        </div>
+        <div class="card-body">
+          <h3>CNN vs. Logistic Regression: Sign Language</h3>
+          <p data-i18n="p3.d">פרויקט גמר בקורס למידת מכונה באוניברסיטת אינסברוק (<bdi>Erasmus+</bdi>), שעשיתי בשיתוף פעולה עם שותף לכיתה. השוואה בין CNN לרגרסיה לוגיסטית בסיווג שפת סימנים ל-36 מחלקות.</p>
+          <ul class="tags"><li>Machine Learning</li><li>CNN</li><li>Logistic Regression</li><li>Classification</li></ul>
+          <span class="link muted"><svg class="ic"><use href="#i-lock"/></svg><span data-i18n="p3.priv">הקוד פרטי מטעמי יושרה אקדמית</span></span>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="sub-h reveal" data-i18n="more.t">עוד מהמחברת</h3>
+    <div class="mini-cards">
+      <article class="mini reveal"><b data-i18n="m1.t">ניתוח סטטיסטי של נתוני הטיטניק</b><p data-i18n="m1.d">חקירת נתונים וסטטיסטיקה על נוסעי הטיטניק, כדי להבין אילו גורמים השפיעו על הישרדות.</p><small data-i18n="m.nogit">ללא קוד בגיטהאב כרגע</small></article>
+      <article class="mini reveal"><b data-i18n="m2.t">פיזיקה: חלונות פתוחים וצריכת דלק</b><p data-i18n="m2.d">מחקר של תיאוריה בפיזיקה על מידת ההשפעה של פתיחת חלונות ברכב על צריכת הדלק, באמצעות חישובים וקוד בפייתון.</p><small data-i18n="m.nogit">ללא קוד בגיטהאב כרגע</small></article>
+      <article class="mini mini-next reveal"><b data-i18n="m3.t">הפרויקט הבא בדרך</b><p data-i18n="m3.d">אני בונה כל הזמן. עוד פרויקטים יתווספו לכאן, ואפשר לעקוב אחריהם ב-GitHub.</p><a href="https://github.com/Avivlevi01" target="_blank" rel="noopener" class="link">github.com/Avivlevi01<svg class="ic"><use href="#i-arrow"/></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="section" id="skills">
+  <div class="container">
+    <p class="eyebrow reveal">03</p>
+    <h2 class="reveal" data-i18n="skills.title">כישורים וטכנולוגיות</h2>
+    <div class="skill-grid">
+      <div class="skill reveal"><h3 data-i18n="sk.lang">שפות תכנות</h3><ul class="chips"><li>Python</li><li>C++</li><li>C</li><li>C#</li></ul></div>
+      <div class="skill reveal"><h3 data-i18n="sk.be">Backend ו-APIs</h3><ul class="chips"><li>FastAPI</li><li>Uvicorn</li><li>REST APIs</li><li>CRUD</li></ul></div>
+      <div class="skill reveal"><h3 data-i18n="sk.qa">בדיקות ואיכות</h3><ul class="chips"><li>Playwright</li><li>pytest</li><li>Page Object Model</li><li>E2E testing</li><li>API testing</li></ul></div>
+      <div class="skill reveal"><h3 data-i18n="sk.dev">DevOps וכלים</h3><ul class="chips"><li>Git</li><li>GitHub Actions (CI)</li><li>Docker</li><li>Linux / Windows</li><li>Computer Networking</li></ul></div>
+      <div class="skill reveal"><h3 data-i18n="sk.con">מושגים</h3><ul class="chips"><li>OOP</li><li>State management</li><li>Machine Learning</li><li>CNN</li><li>Logistic Regression</li></ul></div>
+      <div class="skill reveal"><h3 data-i18n="sk.hum">שפות מדוברות</h3><ul class="chips"><li data-i18n="sk.he">עברית (שפת אם)</li><li data-i18n="sk.en">אנגלית (רמה גבוהה)</li></ul></div>
+    </div>
+
+    <h3 class="sub-h reveal" data-i18n="bring.t">מה אני מביא איתי</h3>
+    <div class="bring">
+      <div class="reveal"><b data-i18n="b1.t">חשיבה מערכתית</b><p data-i18n="b1.d">שנים של ניטור וחקירת תקלות ברשתות קריטיות לימדו אותי איך חלקים במערכת משפיעים זה על זה.</p></div>
+      <div class="reveal"><b data-i18n="b2.t">מנטליות של איכות</b><p data-i18n="b2.d">חבילת הבדיקות שלי רצה אוטומטית על כל push. אני כותב קוד שמוכיח שהוא עובד.</p></div>
+      <div class="reveal"><b data-i18n="b3.t">תקשורת ותיעוד</b><p data-i18n="b3.d">כתבתי נהלי עבודה (SOP), עבדתי מול צוותי R&amp;D ו-DevOps והדרכתי מוקדנים חדשים.</p></div>
+      <div class="reveal"><b data-i18n="b4.t">למידה מהירה</b><p data-i18n="b4.d">מקורסי פייתון ורשתות בצה"ל ועד תואר וסמסטר <bdi>Erasmus+</bdi> בחו"ל: אני נכנס לדברים חדשים ומתקדם מהר.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== JOURNEY ========== -->
+<section class="section alt" id="journey">
+  <div class="container">
+    <p class="eyebrow reveal">04</p>
+    <h2 class="reveal" data-i18n="j.title">המסלול שלי</h2>
+    <div class="journey">
+      <div>
+        <h3 class="col-h reveal" data-i18n="j.exp">ניסיון</h3>
+        <ol class="timeline">
+          <li class="reveal">
+            <span class="when">2024 – 2025</span>
+            <b>Operational Center Dispatcher &amp; Training Lead</b>
+            <em data-i18n="j1.org">המשרד לביטחון לאומי</em>
+            <ul>
+              <li data-i18n="j1.a">הפעלת מערכות C2 קריטיות בסביבת חירום דינמית 24/7, תוך עבודה שיטתית תחת לחץ.</li>
+              <li data-i18n="j1.b">שיפור תהליכי עבודה בין מערכות וכתיבת נהלי עבודה (SOP) מדויקים.</li>
+              <li data-i18n="j1.c">הובלת תוכניות קליטה והדרכה למוקדנים חדשים.</li>
+            </ul>
+          </li>
+          <li class="reveal">
+            <span class="when">2019 – 2022</span>
+            <b>Incident &amp; Network Manager (NOC) &amp; Shift Lead</b>
+            <em data-i18n="j2.org">צה"ל · חיל המודיעין · מערך הספיר</em>
+            <ul>
+              <li data-i18n="j2.a">ניטור מערכות רשת מרכזיות ב-24/7, איתור ובידוד תקלות בתשתית קריטית.</li>
+              <li data-i18n="j2.b">חקירה ופתרון תקלות Tier-2/3 תחת SLA קפדני: איסוף ראיות, תיעוד ממצאים ואימות תיקונים מול צוותי R&amp;D ו-DevOps.</li>
+              <li data-i18n="j2.c">ניהול צוות משמרת; סיום קורסי ניהול רשתות ותכנות בפייתון בצה"ל.</li>
+            </ul>
+          </li>
+          <li class="reveal">
+            <span class="when">2016 – 2019</span>
+            <b>Private Tutor: Mathematics &amp; Physics</b>
+            <ul><li data-i18n="j3.a">מתן שיעורים פרטיים אישיים לתלמידי חטיבה ותיכון.</li></ul>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <h3 class="col-h reveal" data-i18n="j.edu">השכלה</h3>
+        <ol class="timeline">
+          <li class="reveal">
+            <span class="when">2026</span>
+            <b data-i18n="e2.t">סמסטר חילופי (<bdi>Erasmus+</bdi>)</b>
+            <em data-i18n="e2.org">אוניברסיטת אינסברוק, אוסטריה</em>
+            <ul><li data-i18n="e2.a">כולל פרויקט גמר בלמידת מכונה (סיווג שפת סימנים).</li></ul>
+          </li>
+          <li class="reveal">
+            <span class="when">2023 – 2026</span>
+            <b data-i18n="e1.t">תואר ראשון במדעי המחשב</b>
+            <em data-i18n="e1.org">HIT · המכון הטכנולוגי חולון</em>
+            <ul><li data-i18n="e1.a">ממוצע 86+. בסיס חזק ב-<bdi>C</bdi>, <bdi>C++</bdi>, <bdi>Python</bdi> ו-<bdi>C#</bdi>.</li></ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RECOMMENDATION ========== -->
+<section class="section" id="reco">
+  <div class="container">
+    <p class="eyebrow reveal">05</p>
+    <h2 class="reveal" data-i18n="reco.title">מה אומרים עליי</h2>
+    <figure class="reco reveal">
+      <span class="qmark" aria-hidden="true">“</span>
+      <blockquote>
+        <p data-i18n="reco.q1">אביב הפגין לאורך כל תקופת עבודתו מצוינות יוצאת דופן, מקצועיות ומחויבות, ותרם משמעותית למוקד המבצעי.</p>
+        <p data-i18n="reco.q2">אביב יוזם תהליכי עבודה ותמיד מחפש דרכים לשפר, לייעל ולהוסיף ערך מוסף לארגון. הוא מהווה דוגמה אישית למוקדנים הן בגישתו המקצועית והן בהתנהלותו האישית.</p>
+      </blockquote>
+      <figcaption>
+        <b data-i18n="reco.by">אביטל לייבה, מנהלת</b>
+        <span data-i18n="reco.org">המשרד לביטחון לאומי · מכתב המלצה, 24.11.2025</span>
+      </figcaption>
+      <a class="btn btn-outline" href="assets/Recommendation-Letter-Ministry-of-National-Security.pdf" download="Recommendation-Letter-Ministry-of-National-Security.pdf"><svg class="ic"><use href="#i-file"/></svg><span data-i18n="reco.cta">קריאת המכתב המלא (PDF)</span></a>
+      <small class="trans" data-i18n="reco.note"></small>
+    </figure>
+  </div>
+</section>
+
+<!-- ========== BEYOND CODE ========== -->
+<section class="section alt" id="beyond">
+  <div class="container">
+    <p class="eyebrow reveal">06</p>
+    <h2 class="reveal" data-i18n="bey.title">מחוץ לקוד</h2>
+    <p class="section-sub reveal" data-i18n="bey.sub">אנשים ואתגרים מניעים אותי, גם מחוץ למסך.</p>
+    <div class="tiles">
+      <div class="tile reveal"><svg class="ic ic-lg"><use href="#i-heart"/></svg><b data-i18n="t1.t">מתנדב במד"א</b><p data-i18n="t1.d">מתנדב פעיל במגן דוד אדום, ולאורך השנים התנדבתי במקומות רבים נוספים.</p></div>
+      <div class="tile reveal"><svg class="ic ic-lg"><use href="#i-dumbbell"/></svg><b data-i18n="t2.t">קרוספיט והיירוקס</b><p data-i18n="t2.d">התחרתי חובבני בשניהם. משמעת, התמדה ושיפור קטן בכל אימון.</p></div>
+      <div class="tile reveal"><svg class="ic ic-lg"><use href="#i-pulse"/></svg><b data-i18n="t3.t">ריצה וטיפוס</b><p data-i18n="t3.d">צעד אחרי צעד עד הפסגה. אותה גישה שאני מביא לקוד.</p></div>
+      <div class="tile reveal"><svg class="ic ic-lg"><use href="#i-mountain"/></svg><b data-i18n="t4.t">שלג, הרים וטרקים</b><p data-i18n="t4.d">שם אני טוען סוללות. ומשם גם האווירה של הדף הזה.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="summit-scene" id="scene">
+    <svg class="scene-svg" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="sunGlow"><stop offset="0" stop-color="#FFB27A" stop-opacity=".75"/><stop offset=".45" stop-color="#FF8A4C" stop-opacity=".25"/><stop offset="1" stop-color="#FF8A4C" stop-opacity="0"/></radialGradient>
+        <radialGradient id="beaconGlow"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".4" stop-color="#FFD9B8" stop-opacity=".5"/><stop offset="1" stop-color="#FFB27A" stop-opacity="0"/></radialGradient>
+        <mask id="trailMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="420"><path class="mask-path" pathLength="100" d="M592 208Q730 84 904 76" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></mask>
+      </defs>
+      <circle class="sun-glow" cx="930" cy="205" r="200" fill="url(#sunGlow)"/>
+      <g fill="#fff" opacity=".55">
+        <g class="cloud c1"><ellipse cx="220" cy="140" rx="62" ry="13"/><ellipse cx="262" cy="130" rx="40" ry="12"/><ellipse cx="186" cy="132" rx="34" ry="10"/></g>
+        <g class="cloud c2"><ellipse cx="470" cy="112" rx="56" ry="11"/><ellipse cx="506" cy="104" rx="34" ry="10"/></g>
+        <g class="cloud c3"><ellipse cx="1290" cy="150" rx="64" ry="13"/><ellipse cx="1334" cy="140" rx="38" ry="12"/><ellipse cx="1250" cy="142" rx="34" ry="10"/></g>
+      </g>
+      <path d="M0 420V270L90 215L170 250L280 175L390 245L500 200L600 260L700 215L800 190L930 80L1040 190L1130 230L1230 170L1330 230L1440 195V420Z" fill="#A9CBFF" opacity=".9"/>
+      <path d="M930 80L902 120L916 112L930 130L944 112L958 120Z M280 175L262 200L276 194L288 206L298 194Z M1230 170L1212 196L1226 190L1238 202L1250 190Z" fill="#fff" opacity=".95"/>
+      <path d="M0 420V320L110 275L220 310L340 255L450 305L690 290L800 300L900 262L1010 310L1130 280L1260 320L1360 285L1440 310V420Z" fill="#5D90F6"/>
+      <path class="dash" d="M592 208Q730 84 904 76" mask="url(#trailMask)" fill="none" stroke="#fff" stroke-width="2.6" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <g class="beacon" transform="translate(930 68)"><circle class="halo" r="30" fill="url(#beaconGlow)"/><path class="star" d="M0-10L2.4-2.4L10 0L2.4 2.4L0 10L-2.4 2.4L-10 0L-2.4-2.4Z" fill="#fff"/></g>
+      <path d="M0 420V350L150 335L300 345L400 330L470 300L520 270L560 250L600 268L660 300L760 330L900 350L1050 345L1200 360L1330 345L1440 355V420Z" fill="#0F3399"/>
+      <path d="M560 250L520 270L536 268L548 282L562 266L578 280L592 264L600 268Z" fill="#fff" opacity=".92"/>
+      <g class="flag"><line x1="576" y1="258" x2="576" y2="222" stroke="#06143F" stroke-width="2.4" stroke-linecap="round"/><path class="flag-cloth" d="M576 222L600 230L576 238Z" fill="#FF8A4C"/></g>
+      <path id="climbPath" d="M200 338L300 345L400 330L470 300L520 270L558 250" fill="none" stroke="none"/>
+      <g id="summiter" class="hiker-slot"></g>
+    </svg>
+    <p class="scene-cap"><small data-i18n="sc.k">הפסגה הבאה</small><b data-i18n="sc.t">צוות שמעז לטפס גבוה</b></p>
+  </div>
+  <div class="contact-body">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow light reveal">07</p>
+      <h2 class="reveal" data-i18n="c.title">בואו נטפס יחד</h2>
+      <p class="reveal" data-i18n="c.sub">מחפשים Junior Full-Stack שלומד מהר, לוקח אחריות ומגיע מרקע של מערכות קריטיות? אשמח לשמוע על המשרה ועל הצוות. השאירו פרטים ואחזור אליכם.</p>
+      <ul class="direct reveal">
+        <li><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:avivlevi01@gmail.com" dir="ltr">avivlevi01@gmail.com</a><button type="button" class="copy" id="copyMail" aria-label="Copy email"><svg class="ic"><use href="#i-copy"/></svg></button><span class="copied" id="copied" role="status"></span></li>
+        <li><svg class="ic"><use href="#i-phone"/></svg><a href="tel:+972527503577" dir="ltr">052-750-3577</a></li>
+        <li><svg class="ic"><use href="#i-in"/></svg><a href="https://www.linkedin.com/in/aviv-levi-6123a9328" target="_blank" rel="noopener">linkedin.com/in/aviv-levi-6123a9328</a></li>
+        <li><svg class="ic"><use href="#i-code"/></svg><a href="https://github.com/Avivlevi01" target="_blank" rel="noopener">github.com/Avivlevi01</a></li>
+      </ul>
+    </div>
+
+    <form class="form reveal" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field"><label for="f-name" data-i18n="f.name">שם מלא</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-company" data-i18n="f.company">חברה (לא חובה)</label><input id="f-company" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="f-email" data-i18n="f.email">אימייל</label><input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" required></div>
+      <div class="field"><label for="f-msg" data-i18n="f.msg">הודעה</label><textarea id="f-msg" name="message" rows="4" required></textarea></div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit"><svg class="ic"><use href="#i-mail"/></svg><span data-i18n="f.send">שליחה באימייל</span></button>
+        <button class="btn btn-wa" type="button" id="waBtn"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="f.wa">שליחה ב-WhatsApp</span></button>
+      </div>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>© <span id="year">2026</span> <span data-i18n="brand3">אביב לוי</span></span>
+    <span data-i18n="foot">נבנה ביד, בהשראת האלפים</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
