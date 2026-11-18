@@ -6,4 +6,7 @@ CLAUDE.md
 # Original source files (the site uses the copies in assets/)
 /Aviv Levi - Resume - Junior Developer.pdf
 /__Switzerland Linkdin.JPG
+
+# Nightly agent: resume source (phone number), state and temp worktrees stay local
+/agent/
 /מכתב המלצה*.pdf
