@@ -9,4 +9,7 @@ CLAUDE.md
 
 # Nightly agent: resume source (phone number), state and temp worktrees stay local
 /agent/
+
+# Remotion project that renders the skills explainer video (node_modules, renders)
+/skills-demo/
 /מכתב המלצה*.pdf
