@@ -173,6 +173,7 @@ h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.15; font-weight: 800;
 .a1 { background: linear-gradient(135deg, #1F5BFF, #4DA3FF); }
 .a2 { background: linear-gradient(135deg, #0F3399, #3A78F5); }
 .a3 { background: linear-gradient(135deg, #0A1F5C, #1F5BFF 70%, #7CC4FF); }
+.a4 { background: linear-gradient(135deg, #123A9E, #2F7BFF 60%, #5BB5FF); }
 .badge { position: absolute; inset-block-start: 14px; inset-inline-start: 14px; font-family: var(--mono); font-size: 12px; padding: 4px 12px; border-radius: 999px; background: rgba(255, 255, 255, .2); border: 1px solid rgba(255, 255, 255, .4); color: #fff; }
 .card-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
 .card h3 { font-size: 1.22rem; line-height: 1.35; font-weight: 700; }

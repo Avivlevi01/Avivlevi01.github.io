@@ -45,6 +45,7 @@
     'p.code': 'View code on GitHub',
     'p2.wip': 'In progress',
     'p2.d': 'An automated card game inspired by Dominion, written in Python. The focus is architecture: separating game logic from player strategy and managing state across multiple classes. The README openly documents the known issues too, because that’s how real engineering works.',
+    'p4.d': 'A private web app for friends to track fitness personal records: log weight, reps, time and distance, see a progress chart that flags new personal bests, a per-exercise leaderboard and a workout timer. Built with FastAPI and PostgreSQL in a single Docker container, with Alembic migrations, pytest tests, invite-code registration and a bilingual UI with RTL support.',
     'p3.d': 'Final project for a machine learning course at the University of Innsbruck (Erasmus+), built together with a classmate. A comparison of a CNN and logistic regression for classifying sign language into 36 classes.',
     'p3.priv': 'Code is private for academic integrity',
     'more.t': 'More from my notebook',
