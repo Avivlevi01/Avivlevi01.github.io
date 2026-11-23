@@ -6,7 +6,7 @@
   const WA_NUMBER = '972527503577';
   // Optional: paste a Formspree (or similar) endpoint here, e.g. 'https://formspree.io/f/xxxxxxx'
   // to receive messages straight to your inbox without opening the visitor's mail app.
-  const FORM_ENDPOINT = '';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + EMAIL;   // free form-to-email relay; falls back to mailto: if it fails
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -458,12 +458,16 @@
     if (!validate()) return;
     const name = val('name'), company = val('company'), email = val('email'), message = val('message');
     if (FORM_ENDPOINT) {
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
       try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name, company, email, message }) });
-        if (!res.ok) throw new Error(res.status);
-        form.reset(); say(T[lang].sent);
-      } catch (_) { say(T[lang].fail, true); }
-      return;
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ name, company, email, message, _subject: T[lang].subject(name), _template: 'table', _captcha: 'false', _honeypot: form.elements._honeypot.value }) });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
+        form.reset(); say(T[lang].sent); btn.disabled = false;
+        return;
+      } catch (_) { btn.disabled = false; /* fall through to the visitor's mail app */ }
     }
     const body = message + '\n\n— ' + name + (company ? ' (' + company + ')' : '') + '\n' + email;
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(T[lang].subject(name)) + '&body=' + encodeURIComponent(body);
