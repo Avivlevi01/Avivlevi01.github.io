@@ -155,7 +155,8 @@
     <h2 class="reveal" data-i18n="proj.title">פרויקטים</h2>
     <p class="section-sub reveal" data-i18n="proj.sub">פרויקטים אישיים ואקדמיים. אלה לא מערכות חיות עם משתמשים, אלא תיק עבודות שמראה איך אני חושב, בונה ובודק. וזו רק ההתחלה.</p>
 
-    <div class="cards">
+    <div class="carousel" id="projCarousel">
+    <div class="cards" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Projects">
       <!-- P1 -->
       <article class="card reveal">
         <div class="card-art a1" aria-hidden="true">
@@ -221,6 +222,12 @@
           <span class="link muted"><svg class="ic"><use href="#i-lock"/></svg><span data-i18n="p3.priv">הקוד פרטי מטעמי יושרה אקדמית</span></span>
         </div>
       </article>
+    </div>
+    <div class="car-ctrl" id="carCtrl">
+      <button class="car-btn" id="carL" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="car-dots" id="carDots"></div>
+      <button class="car-btn" id="carR" type="button" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
     </div>
 
     <h3 class="sub-h reveal" data-i18n="more.t">עוד מהמחברת</h3>

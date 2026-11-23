@@ -314,6 +314,64 @@
   revealTimer = setInterval(checkReveal, 400);
   checkReveal();
 
+  /* ================= Projects carousel (scroll-snap track, arrows, dots) ================= */
+  (function carousel() {
+    const track = $('#projCarousel .cards'), bL = $('#carL'), bR = $('#carR'), dotsBox = $('#carDots');
+    if (!track || !bL || !bR || !dotsBox) return;
+    const cards = Array.from(track.children), rtl = () => document.documentElement.dir === 'rtl';
+    const gap = () => parseFloat(getComputedStyle(track).columnGap) || 0;
+    const step = () => cards[0].getBoundingClientRect().width + gap();
+    const pos = () => Math.abs(track.scrollLeft);                       // distance from the start edge, in both LTR and RTL
+    const maxPos = () => track.scrollWidth - track.clientWidth;
+    const pages = () => Math.max(1, Math.round(maxPos() / step()) + 1);
+    const goTo = (i) => track.scrollTo({ left: (rtl() ? -1 : 1) * Math.min(i * step(), maxPos()), behavior: reduceMotion ? 'auto' : 'smooth' });
+    const by = (dir) => track.scrollBy({ left: dir * step(), behavior: reduceMotion ? 'auto' : 'smooth' });   // dir: +1 = view moves right (physical)
+
+    let dots = [];
+    function buildDots() {
+      const n = pages();
+      if (dots.length === n) return;
+      dotsBox.textContent = '';
+      dots = Array.from({ length: n }, (_, i) => {
+        const d = document.createElement('button');
+        d.type = 'button'; d.className = 'car-dot';
+        d.addEventListener('click', () => goTo(i));
+        dotsBox.appendChild(d); return d;
+      });
+    }
+    function update() {
+      buildDots();
+      const he = document.documentElement.lang === 'he';
+      bL.setAttribute('aria-label', he ? (rtl() ? 'הבא' : 'הקודם') : (rtl() ? 'Next' : 'Previous'));
+      bR.setAttribute('aria-label', he ? (rtl() ? 'הקודם' : 'הבא') : (rtl() ? 'Previous' : 'Next'));
+      track.setAttribute('aria-label', he ? 'פרויקטים' : 'Projects');
+      const p = pos(), m = maxPos(), idx = Math.min(dots.length - 1, Math.round(p / step()));
+      const atStart = p <= 2, atEnd = p >= m - 2;
+      bR.disabled = rtl() ? atStart : atEnd;                              // right arrow moves the view right: toward the start in RTL
+      bL.disabled = rtl() ? atEnd : atStart;
+      dots.forEach((d, i) => { d.setAttribute('aria-current', i === idx ? 'true' : 'false'); d.setAttribute('aria-label', (he ? 'עמוד ' : 'Page ') + (i + 1)); });
+      const t = track.getBoundingClientRect();                            // cards sliding out of view shrink and fade a little
+      cards.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const v = Math.max(0, Math.min(1, (Math.min(r.right, t.right) - Math.max(r.left, t.left)) / r.width));
+        c.style.setProperty('--v', v > 0.97 ? 1 : v.toFixed(3));
+      });
+    }
+    const queue = update;                                                 // scroll events already fire once per frame, so no extra rAF layer
+    bR.addEventListener('click', () => by(1));
+    bL.addEventListener('click', () => by(-1));
+    track.addEventListener('scroll', queue, { passive: true });
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); by(1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); by(-1); }
+    });
+    window.addEventListener('resize', queue);
+    window.addEventListener('load', queue);
+    const lb = $('#langBtn');
+    if (lb) lb.addEventListener('click', () => setTimeout(() => { track.scrollTo({ left: 0, behavior: 'auto' }); update(); }, 60));
+    update();
+    setTimeout(update, 600);                                              // after fonts/layout settle
+  })();
+
   /* ================= Snow (soft, quiet white drops) ================= */
   const canvas = $('#snow');
   if (canvas && !reduceMotion) {
