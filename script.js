@@ -6,7 +6,7 @@
   const WA_NUMBER = '972527503577';
   // Optional: paste a Formspree (or similar) endpoint here, e.g. 'https://formspree.io/f/xxxxxxx'
   // to receive messages straight to your inbox without opening the visitor's mail app.
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + EMAIL;   // free form-to-email relay; falls back to mailto: if it fails
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwnKayP6BIgAChKBg3mqEMS649JdTRqzwxejbIA4qgGAioXt-QriwD7bB8v_7bne7Vx3Q/exec';   // owner's Google Apps Script web app: emails the message; falls back to mailto: if it fails
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -461,10 +461,11 @@
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ name, company, email, message, _subject: T[lang].subject(name), _template: 'table', _captcha: 'false', _honeypot: form.elements._honeypot.value }) });
+        // text/plain keeps this a "simple" request, so the browser skips the CORS preflight that Apps Script can't answer
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ name, company, email, message, _subject: T[lang].subject(name), _honeypot: form.elements._honeypot.value }) });
         const data = await res.json().catch(() => ({}));
-        if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
+        if (!res.ok || String(data.success) !== 'true') throw new Error(res.status);
         form.reset(); say(T[lang].sent); btn.disabled = false;
         return;
       } catch (_) { btn.disabled = false; /* fall through to the visitor's mail app */ }
