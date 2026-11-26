@@ -27,6 +27,7 @@ Changes are picked up on the next nightly run, not instantly. Any push to `main`
 | | |
 |---|---|
 | 🌍 **Two languages** | Hebrew by default with an English toggle, including right-to-left and left-to-right layouts |
+| 🤖 **Automation section** | An animated walkthrough of the nightly agent that keeps this site up to date |
 | 🏔️ **Mountain scenery** | Ridges generated in code, falling snow, and a hiker who climbs to the summit |
 | 🎠 **Projects carousel** | Arrows, dots, keyboard and swipe |
 | 📬 **Contact form** | Delivered by email through Google Apps Script, with a `mailto:` fallback and a WhatsApp button |

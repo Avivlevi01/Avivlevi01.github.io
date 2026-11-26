@@ -35,6 +35,9 @@
   <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
   <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3.500"/><path d="M12 8V4M2 13v3M22 13v3M9.500 17h5"/><path d="M9 13v.01M15 13v.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.500-3 7.500-7 9-4-1.500-7-4.500-7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5.500-5 12.500 0 18M12 3c5 5.500 5 12.500 0 18"/></symbol>
 </svg>
 
 <a class="skip" href="#about" data-i18n="skip">דילוג לתוכן</a>
@@ -46,6 +49,7 @@
   </a>
   <nav class="menu" id="menu" aria-label="Main">
     <a href="#about" data-i18n="nav.about">אודות</a>
+    <a href="#automation" data-i18n="nav.auto">אוטומציה</a>
     <a href="#projects" data-i18n="nav.projects">פרויקטים</a>
     <a href="#skills" data-i18n="nav.skills">כישורים</a>
     <a href="#journey" data-i18n="nav.journey">מסלול</a>
@@ -79,7 +83,7 @@
       <p class="hello reveal" data-i18n="hero.hello">שלום, אני</p>
       <h1 class="reveal"><span data-i18n="hero.name">אביב לוי</span></h1>
       <p class="role reveal"><span class="role-main">Full-Stack Developer</span></p>
-      <p class="lead reveal" data-i18n="hero.sub">מפתח תוכנה, בוגר מדעי המחשב בהצטיינות ויוצא יחידה טכנולוגית. מביא איתי הבנה מערכתית מעולמות ה-<bdi>NOC</bdi> והתקשורת, יכולת למידה מהירה ורעב לעשייה. אני מחפש סביבה מתקדמת שבה אוכל לבנות, לאתגר את עצמי, ולהצליח יחד עם הצוות.</p>
+      <p class="lead reveal" data-i18n="hero.sub">אני מפתח תוכנה שבונה אפליקציות וסביבות עבודה, ועוטף אותן בבדיקות, בסקריפטים ובסוכנים מבוססי <bdi>LLM</bdi>. בוגר מדעי המחשב בהצטיינות ויוצא יחידה טכנולוגית, עם רקע מעשי ב-<bdi>IT</bdi> וב-<bdi>NOC</bdi>.</p>
       <div class="cta-row reveal">
         <a class="btn btn-white" href="#contact"><svg class="ic"><use href="#i-mail"/></svg><span data-i18n="hero.cta1">בואו נדבר</span></a>
         <a class="btn btn-glass" href="assets/Aviv-Levi-Resume.pdf" download="Aviv-Levi-Resume.pdf"><svg class="ic"><use href="#i-download"/></svg><span data-i18n="hero.cta2">קורות חיים (PDF)</span></a>
@@ -99,6 +103,7 @@
   <span class="p">degree</span>: <span class="s">"B.Sc. Computer Science"</span>,
   <span class="p">stack</span>: [<span class="s">"Python"</span>, <span class="s">"FastAPI"</span>,
           <span class="s">"Playwright"</span>, <span class="s">"Git"</span>],
+  <span class="p">automation</span>: [<span class="s">"scripts"</span>, <span class="s">"LLM agents"</span>],
   <span class="p">background</span>: <span class="s">"24/7 critical systems"</span>,
   <span class="p">learning</span>: <span class="n">true</span>,
   <span class="p">openToWork</span>: <span class="n">true</span>,
@@ -113,7 +118,7 @@
     <ul class="stats reveal">
       <li><b class="count" data-to="86" data-suffix="+">86+</b><span data-i18n="st.gpa">ממוצע בתואר במדעי המחשב (HIT)</span></li>
       <li><b class="count" data-to="7">7</b><span data-i18n="st.lang">שפות תכנות: <bdi dir="ltr">Python, JavaScript, TypeScript, Java, C#, C++, C</bdi></span></li>
-      <li><b class="count" data-to="3">3</b><span data-i18n="st.proj">פרויקטים מוצגים</span></li>
+      <li><b class="count" data-to="4">4</b><span data-i18n="st.proj">פרויקטים מוצגים</span></li>
       <li><b>24/7</b><span data-i18n="st.ops">ניסיון תפעולי במערכות קריטיות</span></li>
     </ul>
   </div>
@@ -148,10 +153,51 @@
   </div>
 </section>
 
+<!-- ========== AUTOMATION (hand-maintained: the nightly agent must not edit this section) ========== -->
+<section class="section auto" id="automation">
+  <div class="container">
+    <p class="eyebrow light reveal">02</p>
+    <h2 class="reveal" data-i18n="au.title">האתר שמתעדכן לבד</h2>
+    <p class="section-sub reveal" data-i18n="au.sub">בניתי לאתר הזה מעטפת אוטומציה: סוכן מבוסס <bdi>LLM</bdi> שרץ בענן, מזהה שינויים בפרויקטים שלי ומעדכן את האתר ואת קורות החיים.</p>
+    <ol class="flow">
+      <li class="reveal">
+        <span class="node" aria-hidden="true"><svg class="ic"><use href="#i-code"/></svg></span>
+        <b data-i18n="au1.t">שינוי בקוד</b>
+        <p data-i18n="au1.d">אני דוחף שינוי לאחד המאגרים הציבוריים שלי.</p>
+      </li>
+      <li class="reveal">
+        <span class="node" aria-hidden="true"><svg class="ic"><use href="#i-bot"/></svg></span>
+        <b data-i18n="au2.t">הסוכן הלילי</b>
+        <p data-i18n="au2.d">רץ בענן בסביבות 01:00 ומחפש פרויקטים חדשים או מעודכנים. אין שינוי? לא קורה כלום.</p>
+      </li>
+      <li class="reveal">
+        <span class="node" aria-hidden="true"><svg class="ic"><use href="#i-file"/></svg></span>
+        <b data-i18n="au3.t">עדכון</b>
+        <p data-i18n="au3.d">כרטיסי הפרויקטים בשתי השפות וקורות חיים בעמוד אחד, רק מעובדות ציבוריות.</p>
+      </li>
+      <li class="reveal">
+        <span class="node" aria-hidden="true"><svg class="ic"><use href="#i-shield"/></svg></span>
+        <b data-i18n="au4.t">בדיקות</b>
+        <p data-i18n="au4.d">אורך קורות החיים, תחביר הקוד, תרגום לכל טקסט חדש, ורק הקבצים הצפויים.</p>
+      </li>
+      <li class="reveal">
+        <span class="node" aria-hidden="true"><svg class="ic"><use href="#i-globe"/></svg></span>
+        <b data-i18n="au5.t">באוויר</b>
+        <p data-i18n="au5.d">הכול עבר? פרסום וסיכום במייל. משהו נכשל? לא מתפרסם ומחכה לי.</p>
+      </li>
+    </ol>
+    <div class="auto-foot reveal">
+      <ul class="tags"><li>LLM Agent</li><li>Claude Code</li><li>Python</li><li>Git</li><li>GitHub Pages</li></ul>
+      <a class="btn btn-glass" href="https://github.com/Avivlevi01/Avivlevi01.github.io#readme" target="_blank" rel="noopener"><span data-i18n="au.cta">איך זה עובד, ב-GitHub</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="auto-more reveal" data-i18n="au.more">ועוד אוטומציה: בדיקות שרצות לבד ב-<bdi>GitHub Actions</bdi> בפרויקטים <bdi>Todo App</bdi> ו-<bdi>Crossfit Records</bdi>.</p>
+  </div>
+</section>
+
 <!-- ========== PROJECTS ========== -->
 <section class="section alt" id="projects">
   <div class="container">
-    <p class="eyebrow reveal">02</p>
+    <p class="eyebrow reveal">03</p>
     <h2 class="reveal" data-i18n="proj.title">פרויקטים</h2>
     <p class="section-sub reveal" data-i18n="proj.sub">פרויקטים אישיים ואקדמיים. אלה לא מערכות חיות עם משתמשים, אלא תיק עבודות שמראה איך אני חושב, בונה ובודק. וזו רק ההתחלה.</p>
 
@@ -242,15 +288,14 @@
 <!-- ========== SKILLS ========== -->
 <section class="section" id="skills">
   <div class="container">
-    <p class="eyebrow reveal">03</p>
+    <p class="eyebrow reveal">04</p>
     <h2 class="reveal" data-i18n="skills.title">כישורים וטכנולוגיות</h2>
     <div class="skill-grid">
+      <div class="skill skill-wide reveal"><h3 data-i18n="sk.auto">אוטומציה וסוכני AI</h3><ul class="chips"><li>Python scripts</li><li>LLM agents</li><li>Claude Code</li><li>Scheduled cloud agents</li><li>GitHub Actions (CI)</li></ul></div>
       <div class="skill reveal"><h3 data-i18n="sk.lang">שפות תכנות</h3><ul class="chips"><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>Java</li><li>C#</li><li>C++</li><li>C</li></ul></div>
       <div class="skill reveal"><h3 data-i18n="sk.be">Backend ו-APIs</h3><ul class="chips"><li>FastAPI</li><li>Uvicorn</li><li>REST APIs</li><li>CRUD</li></ul></div>
       <div class="skill reveal"><h3 data-i18n="sk.qa">בדיקות ואיכות</h3><ul class="chips"><li>Playwright</li><li>pytest</li><li>Page Object Model</li><li>E2E testing</li><li>API testing</li></ul></div>
       <div class="skill reveal"><h3 data-i18n="sk.dev">DevOps וכלים</h3><ul class="chips"><li>Git</li><li>GitHub Actions (CI)</li><li>Docker</li><li>Linux / Windows</li><li>Computer Networking</li></ul></div>
-      <div class="skill reveal"><h3 data-i18n="sk.con">מושגים</h3><ul class="chips"><li>OOP</li><li>State management</li><li>Machine Learning</li><li>CNN</li><li>Logistic Regression</li></ul></div>
-      <div class="skill reveal"><h3 data-i18n="sk.hum">שפות מדוברות</h3><ul class="chips"><li data-i18n="sk.he">עברית (שפת אם)</li><li data-i18n="sk.en">אנגלית (רמה גבוהה)</li></ul></div>
     </div>
 
     <h3 class="sub-h reveal" data-i18n="bring.t">מה אני מביא איתי</h3>
@@ -266,7 +311,7 @@
 <!-- ========== JOURNEY ========== -->
 <section class="section alt" id="journey">
   <div class="container">
-    <p class="eyebrow reveal">04</p>
+    <p class="eyebrow reveal">05</p>
     <h2 class="reveal" data-i18n="j.title">המסלול שלי</h2>
     <div class="journey">
       <div>
@@ -323,7 +368,7 @@
 <!-- ========== RECOMMENDATION ========== -->
 <section class="section" id="reco">
   <div class="container">
-    <p class="eyebrow reveal">05</p>
+    <p class="eyebrow reveal">06</p>
     <h2 class="reveal" data-i18n="reco.title">מה אומרים עליי</h2>
     <figure class="reco reveal">
       <span class="qmark" aria-hidden="true">“</span>
@@ -344,7 +389,7 @@
 <!-- ========== BEYOND CODE ========== -->
 <section class="section alt" id="beyond">
   <div class="container">
-    <p class="eyebrow reveal">06</p>
+    <p class="eyebrow reveal">07</p>
     <h2 class="reveal" data-i18n="bey.title">מחוץ לקוד</h2>
     <p class="section-sub reveal" data-i18n="bey.sub">אנשים ואתגרים מניעים אותי, גם מחוץ למסך.</p>
     <div class="tiles">
@@ -387,7 +432,7 @@
   <div class="contact-body">
   <div class="container contact-grid">
     <div class="contact-copy">
-      <p class="eyebrow light reveal">07</p>
+      <p class="eyebrow light reveal">08</p>
       <h2 class="reveal" data-i18n="c.title">בואו נטפס יחד</h2>
       <p class="reveal" data-i18n="c.sub">מחפשים Junior Full-Stack שלומד מהר, לוקח אחריות ומגיע מרקע של מערכות קריטיות? אשמח לשמוע על המשרה ועל הצוות. השאירו פרטים ואחזור אליכם.</p>
       <ul class="direct reveal">

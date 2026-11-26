@@ -21,7 +21,7 @@
     'hero.status': 'Open to opportunities',
     'hero.hello': 'Hi, I’m',
     'hero.name': 'Aviv Levi',
-    'hero.sub': 'Software developer, Computer Science graduate with honors and a veteran of a technology unit. I bring a systems-level understanding from the worlds of NOC and communications, fast learning and a hunger to deliver. I’m looking for an advanced environment where I can build, challenge myself, and succeed together with the team.',
+    'hero.sub': 'I’m a software developer who builds applications and work environments, and wraps them in tests, scripts and LLM-powered agents. Computer Science graduate with honors and a veteran of a technology unit, with hands-on IT and NOC experience.',
     'hero.cta1': 'Let’s talk', 'hero.cta2': 'Download resume (PDF)',
     'hero.loc': 'Tel Aviv · Ramat Gan · Givatayim',
     'st.gpa': 'GPA · B.Sc. Computer Science (HIT)',
@@ -39,6 +39,17 @@
     'vision.l1': 'First preference: Tel Aviv · Ramat Gan · Givatayim',
     'vision.l2': 'Second preference: the rest of Gush Dan',
     'vision.l3': 'Open to hybrid and remote work',
+    'nav.auto': 'Automation',
+    'au.title': 'The site that updates itself',
+    'au.sub': 'I built an automation layer around this site: an LLM-powered agent that runs in the cloud, spots changes in my projects and updates the site and my resume.',
+    'au1.t': 'Code change', 'au1.d': 'I push a change to one of my public repositories.',
+    'au2.t': 'Nightly agent', 'au2.d': 'Runs in the cloud around 01:00 and looks for new or updated projects. No change? Nothing happens.',
+    'au3.t': 'Update', 'au3.d': 'Project cards in both languages and a one-page resume, using public facts only.',
+    'au4.t': 'Checks', 'au4.d': 'Resume length, code syntax, a translation for every new text, and only the expected files.',
+    'au5.t': 'Live', 'au5.d': 'All passed? It publishes and emails me a summary. Something failed? Nothing ships and it waits for me.',
+    'au.cta': 'How it works, on GitHub',
+    'au.more': 'More automation: tests that run on their own in GitHub Actions for the Todo App and Crossfit Records projects.',
+    'sk.auto': 'Automation & AI agents',
     'proj.title': 'Projects',
     'proj.sub': 'Personal and academic projects. These aren’t live products with users — they’re a portfolio that shows how I think, build and test. And it’s only the beginning.',
     'p1.d': 'A FastAPI todo app with a complete automated test suite: UI (E2E) tests and REST API tests (full CRUD plus negative cases like 404). Page Object pattern with data-testid locators, isolated fixtures, cross-browser runs (Chromium, Firefox, WebKit) and GitHub Actions CI on every push.',
@@ -54,8 +65,7 @@
     'm2.t': 'Physics: open windows & fuel use', 'm2.d': 'Research into a physics theory on how much opening car windows affects fuel consumption, using calculations and Python code.',
     'm3.t': 'The next project is on its way', 'm3.d': 'I’m always building. More projects will land here — follow along on GitHub.',
     'skills.title': 'Skills & technologies',
-    'sk.lang': 'Programming languages', 'sk.be': 'Backend & APIs', 'sk.qa': 'Testing & quality', 'sk.dev': 'DevOps & tools', 'sk.con': 'Concepts', 'sk.hum': 'Spoken languages',
-    'sk.he': 'Hebrew (native)', 'sk.en': 'English (high proficiency)',
+    'sk.lang': 'Programming languages', 'sk.be': 'Backend & APIs', 'sk.qa': 'Testing & quality', 'sk.dev': 'DevOps & tools',
     'bring.t': 'What I bring with me',
     'b1.t': 'Systems thinking', 'b1.d': 'Years of monitoring and investigating faults in critical networks taught me how the parts of a system affect one another.',
     'b2.t': 'A quality mindset', 'b2.d': 'My test suite runs automatically on every push. I write code that proves it works.',
@@ -189,7 +199,7 @@
     <circle cx="26.5" cy="11.5" r=".9" fill="#0B1B3A"/>
   </g>`;
   $$('.hiker-slot').forEach((g) => { g.innerHTML = HIKER; });
-  const placeHiker = (g, x, y, deg, s, flip) => g.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${deg.toFixed(1)}) scale(${flip ? -s : s} ${s}) translate(-22 -53)`);
+  const placeHiker = (g, x, y, deg, s, flip) => g.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${deg.toFixed(2)}) scale(${flip ? -s : s} ${s}) translate(-22 -53)`);
 
   /* ================= Scroll: nav, parallax ================= */
   const hero = $('.hero');
@@ -215,6 +225,12 @@
     // y of the front (white) ridge at a given x, so the hiker never walks "inside" it.
     const front = (x) => { const f = R3.pts, i = Math.min(f.length - 2, Math.max(0, Math.floor(x / 1440 * (f.length - 1)))); const t = (x - f[i][0]) / ((f[i + 1][0] - f[i][0]) || 1); return f[i][1] + (f[i + 1][1] - f[i][1]) * t; };
 
+    // The drawn ridge is jagged, so the hiker follows a smoothed line along its upper edge: no jitter, feet stay on the rock.
+    const ridgeY = (x) => { const i = Math.min(n - 2, Math.max(0, Math.floor(x / 1440 * (n - 1)))), a = raw[i], b = raw[i + 1]; return a[1] + (b[1] - a[1]) * Math.min(1, Math.max(0, (x - a[0]) / (b[0] - a[0]))); };
+    const upper = (x) => Math.min(ridgeY(x - 4), ridgeY(x - 2), ridgeY(x), ridgeY(x + 2), ridgeY(x + 4));
+    const walkY = (x) => { let s = 0, w = 0; for (let k = -14; k <= 14; k += 2) { const g = 16 - Math.abs(k); s += upper(x + k) * g; w += g; } return s / w; };
+    const smoothPath = (seg) => { const x0 = seg[0][0], x1 = seg[seg.length - 1][0], steps = Math.max(2, Math.ceil(Math.abs(x1 - x0) / 2)); return Array.from({ length: steps + 1 }, (_, i) => { const x = x0 + (x1 - x0) * i / steps; return [x, walkY(x)]; }); };
+
     // Find peaks, and for each one a climbing route up its left slope and up its right slope.
     const routes = [];
     const collect = (minRise) => {
@@ -233,6 +249,7 @@
           if (k0 < 0) continue;
           seg = seg.slice(k0);
           if (seg.length < 8) continue;
+          seg = smoothPath(seg);
           const cum = [0]; for (let q = 1; q < seg.length; q++) cum.push(cum[q - 1] + Math.hypot(seg[q][0] - seg[q - 1][0], seg[q][1] - seg[q - 1][1]));
           routes.push({ seg, cum, total: cum[cum.length - 1], flip: side > 0 });
         }
@@ -242,25 +259,28 @@
     if (!routes.length) return;
 
     const at = (r, d) => {
-      let i = 1; while (i < r.cum.length - 1 && r.cum[i] < d) i++;
-      const t = (d - r.cum[i - 1]) / ((r.cum[i] - r.cum[i - 1]) || 1), a = r.seg[i - 1], b = r.seg[i];
-      const w0 = r.seg[Math.max(0, i - 4)], w1 = r.seg[Math.min(r.seg.length - 1, i + 3)], dx = w1[0] - w0[0] || 0.001;
-      return { x: a[0] + (b[0] - a[0]) * t, y: a[1] + (b[1] - a[1]) * t, ang: Math.max(-35, Math.min(35, Math.atan((w1[1] - w0[1]) / dx) * 180 / Math.PI)) };
+      let lo = 1, hi = r.cum.length - 1;                                  // binary search for the segment at distance d
+      while (lo < hi) { const m = (lo + hi) >> 1; if (r.cum[m] < d) lo = m + 1; else hi = m; }
+      const t = (d - r.cum[lo - 1]) / ((r.cum[lo] - r.cum[lo - 1]) || 1), a = r.seg[lo - 1], b = r.seg[lo];
+      const x = a[0] + (b[0] - a[0]) * t;
+      const ang = Math.atan((walkY(x + 18) - walkY(x - 18)) / 36) * 180 / Math.PI;   // lean follows the slope gradually
+      return { x, y: a[1] + (b[1] - a[1]) * t, ang: Math.max(-28, Math.min(28, ang)) };
     };
     let route = routes[(Math.random() * routes.length) | 0], lastRoute = route;
-    const put = (d) => { const p = at(route, Math.min(route.total, Math.max(0, d))); placeHiker(slot, p.x, p.y + 0.6, p.ang * 0.9, S, route.flip); };
+    const put = (d) => { const p = at(route, Math.min(route.total, Math.max(0, d))); placeHiker(slot, p.x, p.y + 0.8, p.ang * 0.6, S, route.flip); };
     if (reduceMotion) { slot.classList.add('arrived'); put(route.total); slot.style.opacity = OP; return; }
 
-    const SPEED = 28, REST = 3200, FADE = 900, WAIT = 700;       // SPEED in viewBox units per second
+    const SPEED = 18, REST = 3200, FADE = 900, WAIT = 700;       // SPEED (viewBox units per second) matches the leg stride set in the CSS
+    const ease = (u, a = 0.08) => u >= 1 ? 1 : u < a ? u * u / (2 * a * (1 - a)) : u > 1 - a ? 1 - (1 - u) * (1 - u) / (2 * a * (1 - a)) : (u - a / 2) / (1 - a);   // gentle start and stop
     let phase = 'walk', t = 0, last = performance.now();
-    const walkMs = () => Math.max(9000, route.total / SPEED * 1000);
+    const walkMs = () => route.total / SPEED * 1000;
     (function frame(now) {
       const dt = Math.min(100, now - last); last = now;
       if (heroVisible) {
         t += dt;
         if (phase === 'walk') {
           slot.classList.add('walk'); slot.classList.remove('arrived');
-          const W = walkMs(); put(t / W * route.total);
+          const W = walkMs(); put(ease(t / W) * route.total);
           slot.style.opacity = OP * Math.min(1, t / 1200);
           if (t >= W) { phase = 'rest'; t = 0; }
         } else if (phase === 'rest') {
